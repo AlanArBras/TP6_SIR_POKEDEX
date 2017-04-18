@@ -1,0 +1,19 @@
+<div class= "frame">
+    <h1>Pokedex</h1>
+    <div ng-controller="PokeSearchCtrl">
+        <form class="form-horizontal" role="form">
+            <div class="form-group">
+                <div class="col-md-6 col-md-offset-3">
+                    <ui-select ng-model="pokemon.selected" limit="100" ng-disabled="!pokemonList" ng-change="redirect(pokemon.selected)">
+                        <ui-select-match placeholder="Select pokemon" ng-click="changePlaceholder()">{{$select.selected.name}}</ui-select-match>
+                        <ui-select-choices limit="10" repeat="pokemon in pokemonList | listFilter: $select.search | limitTo : $select.limit" class="form-control">
+                            <span ng-bind-html="Select"></span>
+                            <span ng-bind-html="pokemon.name | highlight: $select.search"></span>
+                        </ui-select-choices>
+                    </ui-select>
+                    <img class="img-loader" src="images/pokeball_loading.gif" height="180px" ng-hide="!loading"></span>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

@@ -1,0 +1,160 @@
+.browsehappy {
+  margin: 0.2em 0;
+  background: #ccc;
+  color: #000;
+  padding: 0.2em 0;
+}
+
+body {
+  padding: 0;
+}
+html {
+    -webkit-background-size: auto 100%;
+    -moz-background-size: auto 100%;
+    -o-background-size: auto 100%;
+    background-size: 100%;
+}
+html, body {
+    background-color: transparent;
+}
+
+/* Everything but the jumbotron gets side spacing for mobile first views */
+.header,
+.marketing,
+.footer {
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+/* Custom page header */
+.header {
+  border-bottom: 1px solid #e5e5e5;
+  margin-bottom: 10px;
+}
+/* Make the masthead heading the same height as the navigation */
+.header h3 {
+  margin-top: 0;
+  margin-bottom: 0;
+  line-height: 40px;
+  padding-bottom: 19px;
+}
+
+/* Custom page footer */
+.footer {
+  padding-top: 19px;
+  color: #777;
+  border-top: 1px solid #e5e5e5;
+}
+
+.container-narrow > hr {
+  margin: 30px 0;
+}
+
+/* Main marketing message and sign up button */
+.jumbotron {
+  text-align: center;
+  border-bottom: 1px solid #e5e5e5;
+}
+.jumbotron .btn {
+  font-size: 21px;
+  padding: 14px 24px;
+}
+
+/* Responsive: Portrait tablets and up */
+@media screen and (min-width: 768px) {
+  .container {
+    max-width: 730px;
+  }
+
+  .header,
+  .marketing,
+  .footer {
+    padding-left: 0;
+    padding-right: 0;
+  }
+  .header {
+    margin-bottom: 30px;
+  }
+  .jumbotron {
+    border-bottom: 0;
+  }
+}
+
+/* frame inside container and child elements*/
+.frame {
+    border : 1px solid #fdd06d;
+    padding : 10px;
+    margin-left: auto;
+    border-radius: 10px;
+    background-color: white;
+    min-height: 350px;
+    min-width: 280px;
+    overflow: hidden;
+}
+.frame  h1 {
+    margin: 10px 0 20px 0;
+    line-height: 100px;
+    text-align: center;
+}
+.frame  h1 > img {
+    /*vertical-align: top;*/
+    position: absolute;
+}
+.frame .block {
+    display: inline-block;
+    text-align: center;
+    margin: auto;
+    vertical-align: middle;
+}
+.frame .ui-select-toggle {
+    border-color: #fee8b8;
+}
+.frame .ui-select-choices {
+    max-height: 150px;
+}
+.frame .picture {
+    margin: auto;
+
+}
+.frame .img-loader{
+    margin: auto;
+    margin-top: 20px;
+    display: block;
+}
+.frame .intname-name{
+    float: left;
+    margin-right: 40px;
+}
+.frame .intname-lang{
+    float: right;
+}
+.frame .bold{
+    font-weight: bold;
+}
+/* table style */
+.frame .pokedata{
+    margin: 20px;
+}
+.frame .pokedata tr {
+    border-top: 1px solid #ececec;
+    line-height: 40px;
+}
+.frame .pokedata tr:last-child{
+    border-bottom: 1px solid #ececec;
+}
+.frame .pokedata th{
+    text-align: right;
+    padding-right: 20px;
+    color: #777;
+}
+.frame .pokedata td .type {
+    margin-right: 10px;
+}
+.frame .pokedata td .progress {
+    min-width: 100px;
+    margin: auto;
+}
+.frame .pokedata ul li {
+    line-height: 20px;
+    display: table-row;
+}

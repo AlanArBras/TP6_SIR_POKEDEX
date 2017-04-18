@@ -1,0 +1,133 @@
+<div class="frame">
+    <div ng-controller="PokeInfosCtrl" ng-hide="!pokeInfo">
+        <div>
+            <h1>{{pokeInfo.main.name}}</h1>
+        </div>
+        <div ng-model="pokeInfo">
+            <div class="block">
+                <img class="picture" src="http://img.pokemondb.net/artwork/{{pokeInfo.main.name}}.jpg" alt="{{pokeInfo.main.name}}">
+            </div>
+            <div class="block">
+                <table class="pokedata">
+                    <h3>General informations</h3>
+                    <tbody>
+                        <tr>
+                            <th>Names</th>
+                            <td>
+                                <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#intname" aria-expanded="false" aria-controls="intname">
+                                    <span class="block">Name</span>
+                                    <span class="glyphicon glyphicon-arrow-down block"></span>
+                                    <small class="block">Lang</small>
+                                </button>
+                                <ul id="intname" class="accordion-body collapse list-unstyled">
+                                    <li ng-repeat="item in pokeInfo.rest.names">
+                                        <div>
+                                            <span ng-bind-html="item.name" class="intname-name"></span>
+                                            <small ng-bind-html="item.language.name" class="intname-lang"></small>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>National n°</th>
+                            <td>#{{pokeInfo.main.id | pad}}</td>
+                        </tr>
+                        <tr>
+                            <th>Type</th>
+                            <td>
+                                <a class="btn btn-warning btn-xs type" ng-repeat="item in pokeInfo.main.types">{{item.type.name}}</a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>Height</th>
+                            <td>{{pokeInfo.main.height * 10}}cm</td>
+                        </tr>
+                        <tr>
+                            <th>Weight</th>
+                            <td>{{pokeInfo.main.weight / 10}}kg</td>
+                        </tr>
+                        <tr>
+                            <th>Abilities</th>
+                            <td>
+                                <a class="btn btn-danger btn-xs type" ng-repeat="item in pokeInfo.main.abilities">{{item.ability.name}}</a>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="block">
+                <table class="pokedata">
+                    <h3>Base Stats</h3>
+                    <tbody>
+                        <tr ng-repeat="item in pokeInfo.main.stats">
+                            <th>{{item.stat.name}}</th>
+                            <td>
+                                {{item.base_stat}}
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="block">
+                <table class="pokedata">
+                    <h3>Other informations</h3>
+                    <tbody>
+                        <tr>
+                            <th>Catch rate</th>
+                            <td>{{pokeInfo.rest.capture_rate}}</td>
+                        </tr>
+                        <tr>
+                            <th>Base Happiness</th>
+                            <td>{{pokeInfo.rest.base_happiness}}</td>
+                        </tr>
+                        <tr>
+                            <th>Base Experience</th>
+                            <td>{{pokeInfo.main.base_experience}}</td>
+                        </tr>
+                        <tr>
+                            <th>Growth Rate</th>
+                            <td>{{pokeInfo.rest.growth_rate.name}}</td>
+                        </tr>
+                        <tr>
+                            <th>Egg Groups</th>
+                            <td>
+                                <a href="{{item.url}}" class="btn btn-success btn-xs type" ng-repeat="item in pokeInfo.rest.egg_groups">{{item.name}}</a>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="block">
+                <table class="pokedata">
+                    <h3>Evolution Chart</h3>
+                    <tbody>
+                        <tr ng-repeat-start="item in pokeInfo.evolChain">
+                            <td ng-show="item.level">
+                                <span class="glyphicon glyphicon-arrow-down"></span> evolve at
+                            </td>
+                            <td ng-show="item.level">
+                                level {{item.level}} <span class="glyphicon glyphicon-arrow-down"></span>
+                            </td>
+                        </tr>
+                        <tr ng-repeat-end>
+                            <td><a href="#!/pokemon/{{item.id}}">#{{item.name}}</a></td>
+                            <td>
+                                <img id="{{item.name}}" class="picture" ng-src="{{src(item.name)}}" pokeimage />
+                            </td>
+                        </tr>
+                        <!-- <tr ng-repeat="item in pokeInfo.evolChain">
+                        <td>{{item.name}}</td>
+                        <td>
+                        <img id="{{item.name}}" class="picture" ng-src="{{src(item.name)}}" pokeimage />
+                        <a href="/#/pokemon/{{item.id}}">#{{item.id | pad}}</a>
+                        <p ng-hide="!item.level">Level {{item.level}}</p>
+                    </td>
+                </tr> -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <img class="img-loader" src="images/pokeball_loading.gif" height="180px" ng-hide="!loading"></span>
+</div>
